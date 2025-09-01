@@ -1,6 +1,6 @@
 {
   "name": "inspreact",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A lightweight React utility library by inspectph",
   "keywords": [
     "react",
@@ -34,5 +34,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inspect07/inspreact"
+  }
 }
