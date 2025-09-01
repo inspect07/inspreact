@@ -1,0 +1,38 @@
+{
+  "name": "inspreact",
+  "version": "1.2.1",
+  "description": "A lightweight React utility library by inspectph",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "react-components",
+    "typescript",
+    "utility",
+    "helpers",
+    "inspreact"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --dts"
+  },
+  "author": "Emmanuel Santiago (inspectph)",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}
