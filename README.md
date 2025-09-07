@@ -52,11 +52,104 @@ const { count, increment, decrement, reset } = useCounter(0);
 
 ### `useLocalStorage`
 
-Sync state with `localStorage`.
+Sync state with `localStorage`, with optional serializer/deserializer and SSR safety.
 
 ```ts
 import { useLocalStorage } from "inspreact";
 const [name, setName] = useLocalStorage("name", "John Doe");
+
+// With custom serializer/deserializer
+const [user, setUser] = useLocalStorage("user", null, {
+  serializer: u => btoa(JSON.stringify(u)),
+  deserializer: s => JSON.parse(atob(s)),
+});
+```
+### `useMount`
+
+Run a callback only once when the component mounts.
+
+```ts
+import { useMount } from "inspreact";
+useMount(() => {
+  // Do something on mount
+});
+```
+
+### `useUnmount`
+
+Run a callback only once when the component unmounts.
+
+```ts
+import { useUnmount } from "inspreact";
+useUnmount(() => {
+  // Cleanup logic here
+});
+```
+
+### `useUpdateEffect`
+
+Run an effect only on updates, not on initial mount.
+
+```ts
+import { useUpdateEffect } from "inspreact";
+useUpdateEffect(() => {
+  // Do something only on updates
+}, [someValue]);
+```
+
+### `useIsFirstRender`
+
+Detect if this is the first render of a component.
+
+```ts
+import { useIsFirstRender } from "inspreact";
+const isFirst = useIsFirstRender();
+```
+
+### `useInterval`
+
+Declarative setInterval for React.
+
+```ts
+import { useInterval } from "inspreact";
+useInterval(() => {
+  // Do something every second
+}, 1000);
+```
+
+### `useFetch`
+
+Async data fetching with loading, error, and refetch support.
+
+```ts
+import { useFetch } from "inspreact";
+const { data, error, loading, refetch } = useFetch(() => fetch('/api/user').then(r => r.json()), []);
+```
+### `formatBytes`
+
+Convert bytes to a human-readable string.
+
+```ts
+import { formatBytes } from "inspreact";
+formatBytes(1024); // "1 KB"
+```
+
+### `slugify`
+
+Convert a string to a URL-friendly slug.
+
+```ts
+import { slugify } from "inspreact";
+slugify("Hello World!"); // "hello-world"
+```
+
+### `retry`
+
+Retry an async function with configurable attempts and delay.
+
+```ts
+import { retry } from "inspreact";
+await retry(() => fetch('/api').then(r => r.json()), 3, 1000);
 ```
 
 ### `useDebounce`
